@@ -41,7 +41,7 @@ public class CRUDFinal extends Application{
         stage.setHeight(680);
 
         final Label label = new Label("JavaFX CRUD");
-        label.setFont(Font.font("Poppins", FontWeight.BOLD,20));
+        label.setFont(Font.font("Poppins", FontWeight.BOLD,50));
 
 
         table.setEditable(true);
@@ -183,7 +183,7 @@ public class CRUDFinal extends Application{
         });
 
         final Button delButton = new Button("Delete");
-        delButton.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
+        delButton.setBackground(new Background(new BackgroundFill(Color.CADETBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
         delButton.setTextFill(Color.BLACK);
         delButton.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         delButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -195,7 +195,19 @@ public class CRUDFinal extends Application{
             }
         });
 
-        hBox.getChildren().addAll(addName,addMatkul,addWaktu,addGKB,addRuangan,addButton,updtButton,delButton);
+        final Button exitButton = new Button("Exit");
+        exitButton.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
+        exitButton.setTextFill(Color.BLACK);
+        exitButton.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+        exitButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Stage stage1 = (Stage) exitButton.getScene().getWindow();
+                stage1.close();
+            }
+        });
+
+        hBox.getChildren().addAll(addName,addMatkul,addWaktu,addGKB,addRuangan,addButton,updtButton,delButton,exitButton);
         hBox.setSpacing(10);
 
         final VBox vBox = new VBox();
