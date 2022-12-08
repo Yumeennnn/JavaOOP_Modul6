@@ -20,10 +20,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TreeTableColumn.CellEditEvent;
 import javafx.util.Callback;
 
-
+// Source : https://github.com/Yumeennnn/JavaOOP_Modul6/blob/Master/src/main/java/com/example/modul6_final/CRUDFinal.java
+// Refrences : https://edencoding.com/javafx-textfield/
 public class CRUDFinal extends Application{
     private final TableView<Mahasiswa> table = new TableView<>();
     private final ObservableList<Mahasiswa> data = FXCollections.observableArrayList();
@@ -113,6 +113,15 @@ public class CRUDFinal extends Application{
         final TextField addWaktu = new TextField();
         addWaktu.setPromptText("Waktu");
         addWaktu.setMaxWidth(WaktuCol.getPrefWidth());
+        addWaktu.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    addWaktu.setText(newValue.replaceAll("[^\\d+\\.\\d+]", "."));
+                }
+            }
+        });
 
         final TextField addGKB = new TextField();
         addGKB.setPromptText("GKB");
@@ -130,6 +139,15 @@ public class CRUDFinal extends Application{
         final TextField addRuangan = new TextField();
         addRuangan.setPromptText("Ruangan");
         addRuangan.setMaxWidth(RuanganCol.getPrefWidth());
+        addRuangan.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    addRuangan.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
 
         final Button addButton = new Button("Add");
         addButton.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
