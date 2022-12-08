@@ -20,7 +20,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.scene.control.TableView;
-//import javafx.scene.control.TreeTableColumn.CellEditEvent;
+import javafx.scene.control.TreeTableColumn.CellEditEvent;
 import javafx.util.Callback;
 
 
@@ -35,12 +35,12 @@ public class CRUDFinal extends Application{
 
     public void start (Stage stage){
         Scene scene = new Scene(new Group());
-        stage.setTitle("Mini CRUD App By Yummm292");
+        stage.setTitle("CRUD Application");
         scene.setFill(Color.DARKGREY);
         stage.setWidth(1080);
         stage.setHeight(680);
 
-        final Label label = new Label("JavaFX CRUD");
+        final Label label = new Label("CRUD Application");
         label.setFont(Font.font("Poppins", FontWeight.BOLD,50));
 
 
@@ -170,7 +170,7 @@ public class CRUDFinal extends Application{
         updtButton.setTextFill(Color.BLACK);
         updtButton.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         updtButton.setOnAction((ActionEvent e) -> {
-            Dialog d=new Alert(Alert.AlertType.INFORMATION,"Update Sucess!!!");
+            Dialog d=new Alert(Alert.AlertType.INFORMATION,"Update Sukses");
             d.show();
             table.getItems().remove(table.getSelectionModel().getSelectedIndex());
             data.add(new Mahasiswa(addName.getText(),addMatkul.getText(),addWaktu.getText(),addGKB.getText(),addRuangan.getText()));
@@ -189,7 +189,7 @@ public class CRUDFinal extends Application{
         delButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Dialog d = new Alert(Alert.AlertType.INFORMATION,"Delete Success!!!");
+                Dialog d = new Alert(Alert.AlertType.INFORMATION,"Delete Sukses");
                 d.show();
                 table.getItems().removeAll(table.getSelectionModel().getSelectedItem());
             }
@@ -231,7 +231,6 @@ public class CRUDFinal extends Application{
         }
 
         public SimpleStringProperty nameDosenProperty() {
-            if (nameDosen == null) nameDosen = new SimpleStringProperty(this, "NamaDosen");
             return nameDosen;
         }
 
